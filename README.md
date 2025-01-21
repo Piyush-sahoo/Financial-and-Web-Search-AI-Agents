@@ -1,161 +1,118 @@
-\documentclass{article}
-\usepackage{hyperref}
-\usepackage{listings}
-\usepackage{xcolor}
-\usepackage{enumitem}
-\usepackage{geometry}
+# Financial and Web Search AI Agents
 
-\geometry{margin=1in}
+This project showcases the integration of advanced AI agents designed for financial analysis and web search functionalities. It uses the `phi` framework to create specialized agents capable of leveraging tools like YFinance and DuckDuckGo to provide users with actionable insights.
 
-\definecolor{codegreen}{rgb}{0,0.6,0}
-\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+## Table of Contents
+1. [Overview](#overview)
+2. [Features](#features)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [Agents](#agents)
+6. [Playground](#playground)
+7. [Environment Variables](#environment-variables)
+8. [Dependencies](#dependencies)
+9. [Contributing](#contributing)
+10. [License](#license)
 
-\lstdefinestyle{mystyle}{
-    backgroundcolor=\color{backcolour},   
-    commentstyle=\color{codegreen},
-    basicstyle=\ttfamily\small,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    keepspaces=true,                 
-    showspaces=false,                
-    showstringspaces=false,
-    showtabs=false,                  
-    tabsize=2
-}
+## Overview
 
-\lstset{style=mystyle}
-
-\begin{document}
-
-\title{Financial and Web Search AI Agents}
-\author{}
-\date{}
-
-\maketitle
-
-\section*{Overview}
-This project showcases the integration of advanced AI agents designed for financial analysis and web search functionalities. It uses the \texttt{phi} framework to create specialized agents capable of leveraging tools like YFinance and DuckDuckGo to provide users with actionable insights.
-
-\section{Main Components}
 This repository contains two main agents:
-\begin{itemize}
-    \item \textbf{Web Search Agent}: Designed to perform web searches and fetch information using DuckDuckGo.
-    \item \textbf{Finance AI Agent}: Provides financial insights such as stock prices, analyst recommendations, company news, and stock fundamentals using YFinance.
-\end{itemize}
+- **Web Search Agent**: Designed to perform web searches and fetch information using DuckDuckGo.
+- **Finance AI Agent**: Provides financial insights such as stock prices, analyst recommendations, company news, and stock fundamentals using YFinance.
 
 Both agents are designed to interact seamlessly and provide results in an intuitive format like tables, with a strong emphasis on user-friendly outputs.
 
-\section{Features}
+## Features
 
-\subsection{Financial Data Analysis}
-\begin{itemize}
-    \item Fetch stock prices, analyst recommendations, and financial fundamentals
-    \item Summarize the latest company news
-\end{itemize}
+### Financial Data Analysis
+- Fetch stock prices, analyst recommendations, and financial fundamentals
+- Summarize the latest company news
 
-\subsection{Web Search}
-\begin{itemize}
-    \item Search the web for information with source citations
-\end{itemize}
+### Web Search
+- Search the web for information with source citations
 
-\subsection{Multi-agent Collaboration}
-\begin{itemize}
-    \item Combine agents for comprehensive outputs
-\end{itemize}
+### Multi-agent Collaboration
+- Combine agents for comprehensive outputs
 
-\subsection{Interactive Playground}
-\begin{itemize}
-    \item Host and interact with agents via a user-friendly FastAPI playground
-\end{itemize}
+### Interactive Playground
+- Host and interact with agents via a user-friendly FastAPI playground
 
-\section{Installation}
+## Installation
 
-\subsection{Clone the Repository}
-\begin{lstlisting}[language=bash]
+1. Clone the repository:
+```bash
 git clone https://github.com/your-repo-name.git
 cd your-repo-name
-\end{lstlisting}
+```
 
-\subsection{Install Dependencies}
-\begin{lstlisting}[language=bash]
+2. Install dependencies:
+```bash
 pip install -r requirements.txt
-\end{lstlisting}
+```
 
-\subsection{Environment Setup}
-Create a \texttt{.env} file in the root directory with:
-\begin{lstlisting}
+3. Set up environment variables:
+   - Create a `.env` file in the root directory with:
+```
 OPENAI_API_KEY=your_openai_api_key
 PHI_API_KEY=your_phi_api_key
-\end{lstlisting}
+```
 
-\section{Usage}
+## Usage
 
-\subsection{Running the Financial Agent}
-Execute predefined queries:
-\begin{lstlisting}[language=bash]
+### Running the Financial Agent
+Use the `financial_agent.py` script to execute predefined queries:
+```bash
 python financial_agent.py
-\end{lstlisting}
+```
 
-\subsection{Launching the Playground}
-Start the interactive playground:
-\begin{lstlisting}[language=bash]
+### Launching the Playground
+Start the interactive playground using the `playground.py` script:
+```bash
 python playground.py
-\end{lstlisting}
-Access the playground at \url{http://127.0.0.1:8000}
+```
+Access the playground at `http://127.0.0.1:8000`.
 
-\section{Agents}
+## Agents
 
-\subsection{Web Search Agent}
-\begin{itemize}
-    \item \textbf{Role}: Fetches web information
-    \item \textbf{Tools}: DuckDuckGo
-    \item \textbf{Features}:
-    \begin{itemize}
-        \item Includes source citations
-        \item Outputs results in markdown format
-    \end{itemize}
-\end{itemize}
+### Web Search Agent
+- **Role**: Fetches web information
+- **Tools**: DuckDuckGo
+- **Features**:
+  - Includes source citations
+  - Outputs results in markdown format
 
-\subsection{Finance AI Agent}
-\begin{itemize}
-    \item \textbf{Role}: Performs financial analysis
-    \item \textbf{Tools}: YFinance
-    \item \textbf{Features}:
-    \begin{itemize}
-        \item Displays financial data in tables
-        \item Fetches stock prices, fundamentals, recommendations, and news
-    \end{itemize}
-\end{itemize}
+### Finance AI Agent
+- **Role**: Performs financial analysis
+- **Tools**: YFinance
+- **Features**:
+  - Displays financial data in tables
+  - Fetches stock prices, fundamentals, recommendations, and news
 
-\section{Environment Variables}
-Required environment variables in \texttt{.env} file:
-\begin{itemize}
-    \item \texttt{OPENAI\_API\_KEY}: API key for OpenAI integration
-    \item \texttt{PHI\_API\_KEY}: API key for the Phi framework
-\end{itemize}
+## Playground
+The project includes an interactive playground powered by FastAPI, where users can interact with the agents. The playground provides a graphical interface for running queries and visualizing results.
 
-\section{Dependencies}
-Main Python packages:
-\begin{itemize}
-    \item \texttt{phidata}: Core framework for building AI agents
-    \item \texttt{python-dotenv}: For loading environment variables
-    \item \texttt{yfinance}: Fetching financial data
-    \item \texttt{duckduckgo-search}: Web search functionality
-    \item \texttt{fastapi} and \texttt{uvicorn}: Hosting the interactive playground
-    \item \texttt{groq}: Model integration for advanced AI capabilities
-    \item \texttt{openai}: OpenAI API integration
-\end{itemize}
+## Environment Variables
+Ensure the following environment variables are set in a `.env` file:
+- `OPENAI_API_KEY`: API key for OpenAI integration
+- `PHI_API_KEY`: API key for the Phi framework
 
-Install dependencies:
-\begin{lstlisting}[language=bash]
+## Dependencies
+The project uses the following Python packages:
+- `phidata`: Core framework for building AI agents
+- `python-dotenv`: For loading environment variables
+- `yfinance`: Fetching financial data
+- `duckduckgo-search`: Web search functionality
+- `fastapi` and `uvicorn`: Hosting the interactive playground
+- `groq`: Model integration for advanced AI capabilities
+- `openai`: OpenAI API integration
+
+Install all dependencies using:
+```bash
 pip install -r requirements.txt
-\end{lstlisting}
+```
 
-\section{Contributing}
+## Contributing
 Contributions are welcome! Please fork the repository and submit a pull request with your proposed changes.
 
-\section{License}
+## License
 This project is licensed under the MIT License. See the LICENSE file for details.
-
-\end{document}
